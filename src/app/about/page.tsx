@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 
-export default function Home() {
+export default function About() {
   return (
     <>
       <Box
@@ -15,7 +15,12 @@ export default function Home() {
         }}
       >
         <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
-          kjfsm.net
+          About
+        </Typography>
+      </Box>
+      <Box>
+        <Typography variant="body1" component="p">
+          まだ書いてないよ
         </Typography>
       </Box>
     </>
