@@ -17,6 +17,9 @@ export default function Home() {
         <Typography variant="h4" component="h1" sx={{ mb: 2 }}>
           kjfsm.net
         </Typography>
+        <Typography variant="body1" component="p">
+          せっかくかっこいいドメインを買ったのに無駄にしている
+        </Typography>
       </Box>
     </>
   );
