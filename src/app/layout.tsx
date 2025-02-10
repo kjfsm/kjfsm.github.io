@@ -1,9 +1,11 @@
+import { Container } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import * as React from "react";
 
 import Appbar from "@/components/Appbar";
+import Footer from "@/components/Footer";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
@@ -14,7 +16,8 @@ export default function RootLayout(props: { children: React.ReactNode }) {
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <Appbar />
-          {props.children}
+          <Container maxWidth="md">{props.children}</Container>
+          <Footer />
         </AppRouterCacheProvider>
       </body>
     </html>
