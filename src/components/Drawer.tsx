@@ -2,6 +2,7 @@
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
+import WindowIcon from "@mui/icons-material/Window";
 import { IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -24,6 +25,7 @@ export default function TemporaryDrawer() {
   const menuList = [
     { icon: <HomeIcon />, text: "ホーム", path: "/" },
     { icon: <EmojiPeopleIcon />, text: "自分について", path: "/about" },
+    { icon: <WindowIcon />, text: "Windows", path: "/windows" },
   ];
 
   const DrawerList = (
