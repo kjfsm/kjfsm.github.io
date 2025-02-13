@@ -1,11 +1,9 @@
-import { Container } from "@mui/material";
-import CssBaseline from "@mui/material/CssBaseline";
-import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import * as React from "react";
-
 import Appbar from "@/components/Appbar";
 import Footer from "@/components/Footer";
+import { Container } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import CssBaseline from "@mui/material/CssBaseline";
+import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
