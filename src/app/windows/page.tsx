@@ -45,6 +45,9 @@ export default function Windows() {
           width={500}
           height={300}
         />
+        <Typography variant="body1" component="p" sx={{ mt: 2 }}>
+          グラフを作りたくなったので作った
+        </Typography>
       </Box>
     </>
   );
