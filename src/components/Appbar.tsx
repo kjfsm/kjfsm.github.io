@@ -2,7 +2,6 @@
 import HomeIcon from "@mui/icons-material/Home";
 import { AppBar, Button, Toolbar, Typography } from "@mui/material";
 import NextLink from "next/link";
-
 import TemporaryDrawer from "./Drawer";
 
 export default function Appbar() {

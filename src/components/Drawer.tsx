@@ -29,8 +29,8 @@ export default function TemporaryDrawer() {
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
-        {menuList.map(({ icon, text, path }, index) => (
-          <ListItem key={index} disablePadding>
+        {menuList.map(({ icon, text, path }) => (
+          <ListItem key={text} disablePadding>
             <ListItemButton LinkComponent={NextLink} href={path}>
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={text} />
