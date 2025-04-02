@@ -13,7 +13,7 @@ export default function Contact() {
         }}
       >
         <Typography variant="h4" component="h1" gutterBottom>
-          お問い合わせ
+          コンタクト
         </Typography>
         <Typography variant="body1" sx={{ mb: 4, textAlign: "center" }}>
           お問い合わせはX（Twitter）のDMでお願いします。
@@ -35,4 +35,4 @@ export default function Contact() {
       </Box>
     </Container>
   );
-} 
+}

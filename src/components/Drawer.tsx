@@ -27,7 +27,7 @@ export default function TemporaryDrawer() {
     { icon: <HomeIcon />, text: "ホーム", path: "/" },
     { icon: <EmojiPeopleIcon />, text: "自分について", path: "/about" },
     { icon: <WindowIcon />, text: "Windows", path: "/windows" },
-    { icon: <ContactMailIcon />, text: "お問い合わせ", path: "/contact" },
+    { icon: <ContactMailIcon />, text: "コンタクト", path: "/contact" },
   ];
 
   const DrawerList = (
