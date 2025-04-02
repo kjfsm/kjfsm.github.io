@@ -1,4 +1,5 @@
 "use client";
+import ChatIcon from "@mui/icons-material/Chat";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -26,6 +27,7 @@ export default function TemporaryDrawer() {
     { icon: <HomeIcon />, text: "ホーム", path: "/" },
     { icon: <EmojiPeopleIcon />, text: "自分について", path: "/about" },
     { icon: <WindowIcon />, text: "Windows", path: "/windows" },
+    { icon: <ChatIcon />, text: "コンタクト", path: "/contact" },
   ];
 
   const DrawerList = (
