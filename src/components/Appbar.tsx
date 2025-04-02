@@ -9,7 +9,16 @@ export default function Appbar() {
     <AppBar position="static">
       <Toolbar>
         {TemporaryDrawer()}
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        <Typography
+          variant="h6"
+          component={NextLink}
+          href="/"
+          sx={{
+            flexGrow: 1,
+            textDecoration: "none",
+            color: "inherit",
+          }}
+        >
           kjfsm.net
         </Typography>
         <Button color="inherit" component={NextLink} href="/">
