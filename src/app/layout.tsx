@@ -8,14 +8,14 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    default: "ふすま",
-    template: "%s | ふすま",
+    default: "kjfsm.net",
+    template: "%s | kjfsm.net",
   },
   description: "ふすまのウェブサイト",
-  keywords: ["ふすま", "ウェブサイト"],
-  authors: [{ name: "ふすま" }],
-  creator: "ふすま",
-  publisher: "ふすま",
+  keywords: ["kjfsm", "ふすま"],
+  authors: [{ name: "kjfsm" }],
+  creator: "kjfsm",
+  publisher: "kjfsm",
   formatDetection: {
     email: false,
     address: false,
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ja_JP",
     url: "https://kjfsm.net",
-    siteName: "ふすま",
-    title: "ふすま",
+    siteName: "kjfsm.net",
+    title: "kjfsm.net",
     description: "ふすまのウェブサイト",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ふすま",
+    title: "kjfsm.net",
     description: "ふすまのウェブサイト",
   },
   robots: {
