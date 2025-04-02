@@ -1,6 +1,6 @@
 # kjfsm.net
 
-私のポートフォリオサイトです。Next.jsとMaterial UIを使用して構築しています。
+ポートフォリオサイトです。Next.jsとMaterial UIを使用して構築しています。
 
 ## 技術スタック
 
