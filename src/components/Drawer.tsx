@@ -1,4 +1,5 @@
 "use client";
+import CalculateIcon from "@mui/icons-material/Calculate";
 import ChatIcon from "@mui/icons-material/Chat";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
 import HomeIcon from "@mui/icons-material/Home";
@@ -28,6 +29,11 @@ export default function TemporaryDrawer() {
     { icon: <EmojiPeopleIcon />, text: "自分について", path: "/about" },
     { icon: <WindowIcon />, text: "Windows", path: "/windows" },
     { icon: <ChatIcon />, text: "コンタクト", path: "/contact" },
+    {
+      icon: <CalculateIcon />,
+      text: "鍛刀CP計算機",
+      path: "/tourabu/tantou-cp",
+    },
   ];
 
   const DrawerList = (

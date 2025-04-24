@@ -11,8 +11,8 @@
     "vscode": {
       "extensions": [
         "GitHub.copilot",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode"
+        "GitHub.copilot-chat",
+        "biomejs.biome"
       ]
     }
   }
