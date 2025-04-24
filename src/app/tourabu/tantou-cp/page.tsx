@@ -39,8 +39,13 @@ export default function Page() {
                 label="鍛刀資源"
                 id="shigen"
                 value={neededShigen}
+                slotProps={{
+                  htmlInput: {
+                    inputMode: "numeric",
+                  },
+                }}
                 onChange={(e) => {
-                  setNeededShigen(Number.parseInt(e.target.value));
+                  setNeededShigen(Number.parseFloat(e.target.value));
                 }}
               />
               <TextField
@@ -48,6 +53,11 @@ export default function Page() {
                 label="必要顕現ポイント"
                 id="neededPoint"
                 value={neededPoint}
+                slotProps={{
+                  htmlInput: {
+                    inputMode: "numeric",
+                  },
+                }}
                 onChange={(e) => {
                   setNeededPoint(Number.parseFloat(e.target.value));
                 }}
@@ -85,7 +95,7 @@ export default function Page() {
                   },
                 }}
                 onChange={(e) => {
-                  setFuji(Number.parseInt(e.target.value));
+                  setFuji(Number.parseFloat(e.target.value));
                 }}
               />
               <TextField
