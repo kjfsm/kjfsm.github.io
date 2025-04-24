@@ -1,5 +1,10 @@
-"use client";
 import { Box, Container, Typography } from "@mui/material";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "お問い合わせ",
+  description: "お問い合わせページ",
+};
 
 export default function Contact() {
   return (

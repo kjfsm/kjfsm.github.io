@@ -1,6 +1,12 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import type { Metadata } from "next";
 import NextLink from "next/link";
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "About Page",
+};
 
 export default function About() {
   return (
