@@ -27,12 +27,18 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: "https://kjfsm.net",
     siteName: "kjfsm.net",
-    title: "kjfsm.net",
+    title: {
+      default: "kjfsm.net",
+      template: "%s | kjfsm.net",
+    },
     description: "ふすまのウェブサイト",
   },
   twitter: {
     card: "summary_large_image",
-    title: "kjfsm.net",
+    title: {
+      default: "kjfsm.net",
+      template: "%s | kjfsm.net",
+    },
     description: "ふすまのウェブサイト",
   },
   robots: {
