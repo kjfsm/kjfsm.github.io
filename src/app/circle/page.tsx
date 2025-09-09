@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "サークルスケジューラー",
@@ -36,7 +37,7 @@ export default function Contact() {
           現在開発中です。興味のある方は以下のリンクからアクセスしてください。
         </Typography>
         <Typography variant="body1" component="p">
-          <a href="https://circle.kjfsm.net">サークルスケジューラー</a>
+          <Link href="https://circle.kjfsm.net">サークルスケジューラー</Link>
         </Typography>
       </Box>
       <Box sx={{ textAlign: "center", mt: 4 }}>

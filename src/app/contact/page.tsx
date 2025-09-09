@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "お問い合わせ",
@@ -27,14 +28,14 @@ export default function Contact() {
         <Box sx={{ textAlign: "center" }}>
           <Typography variant="body1">
             X (Twitter):{" "}
-            <a
+            <Link
               href="https://x.com/kjfsm4"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "inherit" }}
             >
               @kjfsm4
-            </a>
+            </Link>
           </Typography>
         </Box>
       </Box>

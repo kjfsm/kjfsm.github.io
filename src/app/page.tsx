@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
           スケジュール管理アプリを作りました（開発中）
         </Typography>
         <Typography variant="body1" component="p">
-          <a href="https://circle.kjfsm.net">サークルスケジューラー</a>
+          <Link href="https://circle.kjfsm.net">サークルスケジューラー</Link>
         </Typography>
       </Box>
     </>
