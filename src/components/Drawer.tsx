@@ -32,7 +32,7 @@ export default function TemporaryDrawer() {
     {
       icon: <CalendarMonth />,
       text: "サークルスケジューラー",
-      path: "https://circle.kjfsm.net",
+      path: "/circle",
     },
     { icon: <ChatIcon />, text: "コンタクト", path: "/contact" },
     {
