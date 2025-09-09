@@ -17,7 +17,10 @@ export default function Home() {
           kjfsm.net
         </Typography>
         <Typography variant="body1" component="p">
-          せっかくかっこいいドメインを買ったのに無駄にしている
+          スケジュール管理アプリを作りました（開発中）
+        </Typography>
+        <Typography variant="body1" component="p">
+          <a href="https://circle.kjfsm.net">サークルスケジューラー</a>
         </Typography>
       </Box>
     </>

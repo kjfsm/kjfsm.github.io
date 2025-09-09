@@ -1,4 +1,5 @@
 "use client";
+import { CalendarMonth } from "@mui/icons-material";
 import CalculateIcon from "@mui/icons-material/Calculate";
 import ChatIcon from "@mui/icons-material/Chat";
 import EmojiPeopleIcon from "@mui/icons-material/EmojiPeople";
@@ -28,6 +29,11 @@ export default function TemporaryDrawer() {
     { icon: <HomeIcon />, text: "ホーム", path: "/" },
     { icon: <EmojiPeopleIcon />, text: "自分について", path: "/about" },
     { icon: <WindowIcon />, text: "Windows", path: "/windows" },
+    {
+      icon: <CalendarMonth />,
+      text: "サークルスケジューラー",
+      path: "https://circle.kjfsm.net",
+    },
     { icon: <ChatIcon />, text: "コンタクト", path: "/contact" },
     {
       icon: <CalculateIcon />,
@@ -37,7 +43,7 @@ export default function TemporaryDrawer() {
   ];
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 290 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         {menuList.map(({ icon, text, path }) => (
           <ListItem key={text} disablePadding>
