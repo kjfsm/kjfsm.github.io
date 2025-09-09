@@ -34,6 +34,7 @@ export default function TemporaryDrawer() {
       text: "サークルスケジューラー",
       path: "/circle",
     },
+    { icon: <ChatIcon />, text: "ブログ", path: "/blog" },
     { icon: <ChatIcon />, text: "コンタクト", path: "/contact" },
     {
       icon: <CalculateIcon />,
