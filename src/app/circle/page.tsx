@@ -33,15 +33,10 @@ export default function Contact() {
           <li>カレンダー表示でのスケジュール確認</li>
         </ul>
         <Typography variant="body1" sx={{ mb: 4 }}>
-          現在開発中です。興味のある方は以下のリンクからアクセスしてください。
+          興味のある方は以下のリンクからアクセスしてください。
         </Typography>
         <Typography variant="body1" component="p">
           <Link href="https://circle.kjfsm.net">サークルスケジューラー</Link>
-        </Typography>
-      </Box>
-      <Box sx={{ mt: 4 }}>
-        <Typography variant="body2" color="textSecondary">
-          ※このアプリはまだ開発中であり、予告なく変更されることがあります。
         </Typography>
       </Box>
     </Container>

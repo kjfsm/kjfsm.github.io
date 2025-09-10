@@ -62,7 +62,6 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <InitColorSchemeScript attribute="class" />
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <Appbar />
           <Container maxWidth="md">{props.children}</Container>

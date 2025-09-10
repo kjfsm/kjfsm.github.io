@@ -18,7 +18,7 @@ export default function Home() {
           kjfsm.net
         </Typography>
         <Typography variant="body1" component="p">
-          スケジュール管理アプリを作りました（開発中）
+          スケジュール管理アプリを作りました
         </Typography>
         <Typography variant="body1" component="p">
           <Link href="https://circle.kjfsm.net">サークルスケジューラー</Link>
