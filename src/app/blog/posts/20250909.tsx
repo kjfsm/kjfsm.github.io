@@ -38,11 +38,10 @@ export default function PostPage() {
         <li>自分が楽しい開発環境を作る</li>
         せっかくやるなら、最高の開発体験をしたい。自動テストとか、Remixによるフルスタック開発とか。
       </ul>
-      まだ開発中ですが、興味があれば以下のリンクからどうぞ。
+      興味があれば以下のリンクからどうぞ。
       <p>
         <Link href="https://circle.kjfsm.net">サークルスケジューラー</Link>
       </p>
-      一応一通りの機能はできてきました。
     </article>
   );
 }
