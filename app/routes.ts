@@ -5,4 +5,8 @@ export default [
     path: "/",
     file: "routes/_index.tsx",
   },
+  {
+    path: "/tourabu/tantou-cp",
+    file: "routes/tourabu.tantou-cp.tsx",
+  },
 ] satisfies RouteConfig;
