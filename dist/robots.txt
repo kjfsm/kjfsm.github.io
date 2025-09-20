@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.kjfsm.net
-
-# Sitemaps
-Sitemap: https://www.kjfsm.net/sitemap.xml
