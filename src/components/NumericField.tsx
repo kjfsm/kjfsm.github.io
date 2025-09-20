@@ -1,4 +1,5 @@
 import { Input } from "./ui/input"
+import { Label } from "./ui/label"
 
 type NumericFieldProps = {
   label: string
@@ -15,9 +16,7 @@ export const NumericField = ({
 }: NumericFieldProps) => {
   return (
     <div className="space-y-2">
-      <label htmlFor={id} className="text-sm font-medium">
-        {label}
-      </label>
+      <Label htmlFor={id}>{label}</Label>
       <Input
         type="text"
         id={id}

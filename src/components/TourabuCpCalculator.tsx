@@ -1,4 +1,5 @@
 import { NumericField } from "@/components/NumericField"
+import { Separator } from "@/components/ui/separator"
 import { useState } from "react"
 
 export default function TourabuCpCalculator() {
@@ -58,7 +59,7 @@ export default function TourabuCpCalculator() {
           />
         </form>
         
-        <hr className="border-border" />
+        <Separator />
         
         <div className="p-4 bg-muted rounded-lg">
           <p className="text-lg font-medium">
