@@ -32,12 +32,12 @@ git clone https://github.com/kjfsm/kjfsm.github.io.git
 
 2. 依存関係のインストール
 ```bash
-npm install
+pnpm install
 ```
 
 3. 開発サーバーの起動
 ```bash
-npm run dev
+pnpm run dev
 ```
 
 4. ブラウザで http://localhost:3000 を開く
@@ -45,7 +45,7 @@ npm run dev
 ## ビルド方法
 
 ```bash
-npm run build
+pnpm run build
 ```
 
 ## デプロイ
