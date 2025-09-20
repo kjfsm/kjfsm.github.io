@@ -1,17 +1,9 @@
-import { Container, Typography } from "@mui/material";
-
 export default function Footer() {
   return (
-    <Container
-      component="footer"
-      sx={{
-        py: 3,
-        textAlign: "center",
-      }}
-    >
-      <Typography variant="body2" color="text.secondary">
+    <footer className="py-6 text-center">
+      <p className="text-sm text-muted-foreground">
         © {new Date().getFullYear()} kjfsm
-      </Typography>
-    </Container>
-  );
+      </p>
+    </footer>
+  )
 }
