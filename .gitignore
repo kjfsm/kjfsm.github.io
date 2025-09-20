@@ -21,6 +21,9 @@
 /build
 /dist
 
+# react-router
+/.react-router
+
 # misc
 .DS_Store
 *.pem
