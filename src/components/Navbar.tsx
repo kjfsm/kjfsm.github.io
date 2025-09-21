@@ -1,20 +1,53 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { Button } from './ui/button'
-import { Menu, Home, User, Calendar, MessageSquare, Calculator, Monitor, Mail } from 'lucide-react'
+import {
+  Calculator,
+  Calendar,
+  Home,
+  Mail,
+  Menu,
+  MessageSquare,
+  Monitor,
+  User,
+} from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
     { icon: <Home className="w-4 h-4" />, text: "ホーム", path: "/" },
-    { icon: <User className="w-4 h-4" />, text: "自分について", path: "/about" },
-    { icon: <Monitor className="w-4 h-4" />, text: "Windows", path: "/windows" },
-    { icon: <Calendar className="w-4 h-4" />, text: "サークルスケジューラー", path: "/circle" },
-    { icon: <MessageSquare className="w-4 h-4" />, text: "ブログ", path: "/blog" },
-    { icon: <Mail className="w-4 h-4" />, text: "コンタクト", path: "/contact" },
-    { icon: <Calculator className="w-4 h-4" />, text: "鍛刀CP計算機", path: "/tourabu/tantou-cp" },
-  ]
+    {
+      icon: <User className="w-4 h-4" />,
+      text: "自分について",
+      path: "/about",
+    },
+    {
+      icon: <Monitor className="w-4 h-4" />,
+      text: "Windows",
+      path: "/windows",
+    },
+    {
+      icon: <Calendar className="w-4 h-4" />,
+      text: "サークルスケジューラー",
+      path: "/circle",
+    },
+    {
+      icon: <MessageSquare className="w-4 h-4" />,
+      text: "ブログ",
+      path: "/blog",
+    },
+    {
+      icon: <Mail className="w-4 h-4" />,
+      text: "コンタクト",
+      path: "/contact",
+    },
+    {
+      icon: <Calculator className="w-4 h-4" />,
+      text: "鍛刀CP計算機",
+      path: "/tourabu/tantou-cp",
+    },
+  ];
 
   return (
     <header className="bg-primary text-primary-foreground shadow-md">
@@ -71,5 +104,5 @@ export default function Navbar() {
         )}
       </div>
     </header>
-  )
+  );
 }

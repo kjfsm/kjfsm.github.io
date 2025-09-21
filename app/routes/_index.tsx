@@ -13,7 +13,7 @@ export default function HomePage() {
       <h1 className="text-4xl font-bold mb-4">kjfsm.net</h1>
       <p className="text-lg">スケジュール管理アプリを作りました</p>
       <p className="text-lg">
-        <a 
+        <a
           href="https://circle.kjfsm.net"
           className="text-primary hover:underline"
           target="_blank"

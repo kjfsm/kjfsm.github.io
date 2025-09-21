@@ -1,13 +1,7 @@
-import {
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "react-router";
 import type { LinksFunction } from "react-router";
-import Navbar from "~/components/Navbar";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import Footer from "~/components/Footer";
+import Navbar from "~/components/Navbar";
 import { Separator } from "~/components/ui/separator";
 
 import "./index.css";

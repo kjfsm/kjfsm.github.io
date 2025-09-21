@@ -1,14 +1,14 @@
-import { Routes, Route } from 'react-router-dom'
-import Layout from './components/Layout'
-import HomePage from './pages/HomePage'
-import AboutPage from './pages/AboutPage'
-import BlogPage from './pages/BlogPage'
-import BlogPostPage from './pages/BlogPostPage'
-import CirclePage from './pages/CirclePage'
-import ContactPage from './pages/ContactPage'
-import TourabuPage from './pages/TourabuPage'
-import WindowsPage from './pages/WindowsPage'
-import NotFoundPage from './pages/NotFoundPage'
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import AboutPage from "./pages/AboutPage";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
+import CirclePage from "./pages/CirclePage";
+import ContactPage from "./pages/ContactPage";
+import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
+import TourabuPage from "./pages/TourabuPage";
+import WindowsPage from "./pages/WindowsPage";
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

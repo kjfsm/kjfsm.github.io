@@ -5,5 +5,5 @@ export default function Footer() {
         © {new Date().getFullYear()} kjfsm
       </p>
     </footer>
-  )
+  );
 }

@@ -4,7 +4,7 @@ export default function AboutPage() {
       <div className="my-8 flex flex-col items-center justify-center">
         <h1 className="text-4xl font-bold mb-4">About</h1>
       </div>
-      
+
       <div className="space-y-6">
         <section>
           <h2 className="text-2xl font-semibold mb-2">名前</h2>
@@ -14,8 +14,8 @@ export default function AboutPage() {
         <section>
           <h2 className="text-2xl font-semibold mb-2">X アカウント</h2>
           <p className="text-lg">
-            <a 
-              href="https://x.com/kjfsm4" 
+            <a
+              href="https://x.com/kjfsm4"
               className="text-primary hover:underline"
               target="_blank"
               rel="noopener noreferrer"
@@ -32,7 +32,7 @@ export default function AboutPage() {
 
         <section>
           <h2 className="text-2xl font-semibold mb-4">プログラミング</h2>
-          
+
           <div className="space-y-4">
             <div>
               <h3 className="text-xl font-medium mb-2">Go言語</h3>
@@ -53,7 +53,8 @@ export default function AboutPage() {
             <div>
               <h3 className="text-xl font-medium mb-2">Docker</h3>
               <p className="text-base">
-                Dev Containerで開発環境作ったりなんかデプロイするときに使っている。
+                Dev
+                Containerで開発環境作ったりなんかデプロイするときに使っている。
                 あんまり難しいことはわからない。
               </p>
             </div>
@@ -61,5 +62,5 @@ export default function AboutPage() {
         </section>
       </div>
     </div>
-  )
+  );
 }

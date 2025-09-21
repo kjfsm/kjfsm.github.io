@@ -1,5 +1,5 @@
-import TourabuCpCalculator from '@/components/TourabuCpCalculator'
+import TourabuCpCalculator from "@/components/TourabuCpCalculator";
 
 export default function TourabuPage() {
-  return <TourabuCpCalculator />
+  return <TourabuCpCalculator />;
 }

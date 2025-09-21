@@ -1,12 +1,12 @@
-import { Input } from "./ui/input"
-import { Label } from "./ui/label"
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
 
 type NumericFieldProps = {
-  label: string
-  id?: string
-  value: number
-  onChange: (value: number) => void
-}
+  label: string;
+  id?: string;
+  value: number;
+  onChange: (value: number) => void;
+};
 
 export const NumericField = ({
   label,
@@ -23,15 +23,15 @@ export const NumericField = ({
         value={value.toString()}
         inputMode="numeric"
         onChange={(e) => {
-          onChange(sanitizeInput(e.target.value))
+          onChange(sanitizeInput(e.target.value));
         }}
       />
     </div>
-  )
-}
+  );
+};
 
 const sanitizeInput = (raw: string): number => {
-  const cleaned = raw.replace(/^0+(?=\d)/, "") // 頭の0を除去
-  const parsed = Number(cleaned)
-  return Number.isNaN(parsed) ? 0 : parsed
-}
+  const cleaned = raw.replace(/^0+(?=\d)/, ""); // 頭の0を除去
+  const parsed = Number(cleaned);
+  return Number.isNaN(parsed) ? 0 : parsed;
+};
