@@ -96,7 +96,10 @@ export default function Index() {
 
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
             <Button size="lg" asChild className="w-full md:w-auto">
-              <a href="/auth/google" className="flex items-center">
+              <a
+                href="https://circle.kjfsm.net/auth/google"
+                className="flex items-center"
+              >
                 Googleでログイン
                 <ArrowRight className="ml-2 h-4 w-4" />
               </a>
@@ -162,7 +165,7 @@ export default function Index() {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
               <Button size="lg" asChild>
-                <a href="/auth/google">無料で始める</a>
+                <a href="https://circle.kjfsm.net/auth/google">無料で始める</a>
               </Button>
             </div>
           </div>
@@ -185,12 +188,12 @@ export default function Index() {
                 >
                   利用規約
                 </Link>
-                <a
-                  href="/privacy"
+                <Link
+                  to="/privacy"
                   className="transition-colors hover:text-foreground"
                 >
                   プライバシーポリシー
-                </a>
+                </Link>
               </div>
               <div className="flex items-center space-x-4 text-muted-foreground text-sm">
                 <span>v1.1.0</span>
