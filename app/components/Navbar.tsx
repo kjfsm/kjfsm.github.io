@@ -5,7 +5,6 @@ import {
   Mail,
   Menu,
   MessageSquare,
-  Monitor,
   User,
 } from "lucide-react";
 import { useState } from "react";
@@ -21,11 +20,6 @@ export default function Navbar() {
       icon: User,
       text: "自分について",
       path: "/about",
-    },
-    {
-      icon: Monitor,
-      text: "Windows",
-      path: "/windows",
     },
     {
       icon: Calendar,
