@@ -1,8 +1,6 @@
 import type { LinksFunction, MetaFunction } from "react-router";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import { Separator } from "./shadcn/components/ui/separator";
 import styles from "./tailwind.css?url";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
@@ -11,8 +9,15 @@ export const meta: MetaFunction = () => {
   return [
     { title: "kjfsm.net" },
     { property: "og:title", content: "kjfsm.net" },
-    { name: "description", content: "ふすまのウェブサイト - React Router v7 + shadcn/ui + Tailwind CSS" },
-    { name: "keywords", content: "kjfsm,ふすま,React Router,shadcn/ui,Tailwind CSS" },
+    {
+      name: "description",
+      content:
+        "ふすまのウェブサイト - React Router v7 + shadcn/ui + Tailwind CSS",
+    },
+    {
+      name: "keywords",
+      content: "kjfsm,ふすま,React Router,shadcn/ui,Tailwind CSS",
+    },
   ];
 };
 
@@ -25,13 +30,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="flex min-h-screen flex-col">
         <Navbar />
-        <main className="flex-1 mx-auto max-w-4xl w-full px-4 py-8">
-          {children}
-        </main>
-        <Separator />
-        <Footer />
+        <main>{children}</main>
         <ScrollRestoration />
         <Scripts />
       </body>

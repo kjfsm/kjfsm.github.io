@@ -45,11 +45,14 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="bg-primary text-primary-foreground shadow-lg relative z-50">
+    <header className="relative z-50 bg-primary text-primary-foreground shadow-lg">
       <div className="mx-auto max-w-4xl px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="font-bold text-xl hover:opacity-90 transition-opacity">
+          <Link
+            to="/"
+            className="font-bold text-xl transition-opacity hover:opacity-90"
+          >
             kjfsm.net
           </Link>
 
@@ -58,7 +61,7 @@ export default function Navbar() {
             variant="ghost"
             size="icon"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="hover:bg-primary-foreground/10 transition-colors"
+            className="transition-colors hover:bg-primary-foreground/10"
             aria-label={isMenuOpen ? "メニューを閉じる" : "メニューを開く"}
           >
             {isMenuOpen ? (
@@ -71,17 +74,17 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="absolute top-16 left-0 right-0 bg-primary border-t border-primary-foreground/20 shadow-lg">
+          <div className="absolute top-16 right-0 left-0 border-primary-foreground/20 border-t bg-primary shadow-lg">
             <nav className="mx-auto max-w-4xl px-4 py-4">
               <div className="space-y-1">
                 {menuItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
-                    className="flex items-center gap-3 rounded-md px-4 py-3 transition-colors hover:bg-primary-foreground/10 group"
+                    className="group flex items-center gap-3 rounded-md px-4 py-3 transition-colors hover:bg-primary-foreground/10"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    <item.icon className="size-5 text-primary-foreground/80 group-hover:text-primary-foreground transition-colors" />
+                    <item.icon className="size-5 text-primary-foreground/80 transition-colors group-hover:text-primary-foreground" />
                     <span className="font-medium">{item.text}</span>
                   </Link>
                 ))}
