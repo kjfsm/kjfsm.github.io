@@ -110,7 +110,7 @@ export default function Index() {
               asChild
               className="w-full md:w-auto"
             >
-              <a href="/how-to-use">使い方を見る</a>
+              <Link to="/how-to-use">使い方を見る</Link>
             </Button>
           </div>
         </div>
