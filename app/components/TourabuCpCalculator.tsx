@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NumericField } from "~/components/NumericField";
-import { Separator } from "~/components/ui/separator";
+import { Separator } from "~/shadcn/components/ui/separator";
 
 export default function TourabuCpCalculator() {
   const [neededResources, setNeededResources] = useState<number>(700);
@@ -15,7 +15,7 @@ export default function TourabuCpCalculator() {
   return (
     <div className="space-y-8">
       <div className="my-8 flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold mb-4 text-center">
+        <h1 className="mb-4 text-center font-bold text-4xl">
           刀剣乱舞 鍛刀キャンペーン天井計算機
         </h1>
       </div>
@@ -24,7 +24,7 @@ export default function TourabuCpCalculator() {
         <p className="text-lg">鍛刀キャンペーンのポイントを計算します。</p>
 
         <form className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <NumericField
               label="鍛刀資源"
               value={neededResources}
@@ -43,7 +43,7 @@ export default function TourabuCpCalculator() {
             onChange={setResources}
           />
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             <NumericField label="富士" value={fuji} onChange={setFuji} />
             <NumericField label="松" value={matsu} onChange={setMatsu} />
             <NumericField label="竹" value={take} onChange={setTake} />
@@ -59,8 +59,8 @@ export default function TourabuCpCalculator() {
 
         <Separator />
 
-        <div className="p-4 bg-muted rounded-lg">
-          <p className="text-lg font-medium">
+        <div className="rounded-lg bg-muted p-4">
+          <p className="font-medium text-lg">
             {resources === 0 ? (
               "所持資源を入力してください。"
             ) : resources > 0 &&

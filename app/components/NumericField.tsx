@@ -1,5 +1,5 @@
-import { Input } from "./ui/input";
-import { Label } from "./ui/label";
+import { Input } from "~/shadcn/components/ui/input";
+import { Label } from "~/shadcn/components/ui/label";
 
 type NumericFieldProps = {
   label: string;
