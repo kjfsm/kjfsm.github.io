@@ -1,27 +1,22 @@
-import type { LinksFunction } from "react-router";
+import type { LinksFunction, MetaFunction } from "react-router";
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import Footer from "~/components/Footer";
-import Navbar from "~/components/Navbar";
-import { Separator } from "~/components/ui/separator";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import { Separator } from "./shadcn/components/ui/separator";
+import styles from "./tailwind.css?url";
 
-import "./index.css";
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
-export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
+export const meta: MetaFunction = () => {
+  return [
+    { title: "kjfsm.net" },
+    { property: "og:title", content: "kjfsm.net" },
+  ];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ja">
+    <html lang="ja-JP">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,7 +24,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+        <Navbar />
         {children}
+        <Separator />
+        <Footer />
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -38,14 +36,5 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
-      <main className="flex-1 container mx-auto max-w-4xl px-4 py-8">
-        <Outlet />
-      </main>
-      <Separator />
-      <Footer />
-    </div>
-  );
+  return <Outlet />;
 }
