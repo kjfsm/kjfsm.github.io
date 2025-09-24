@@ -11,6 +11,8 @@ export const meta: MetaFunction = () => {
   return [
     { title: "kjfsm.net" },
     { property: "og:title", content: "kjfsm.net" },
+    { name: "description", content: "ふすまのウェブサイト - React Router v7 + shadcn/ui + Tailwind CSS" },
+    { name: "keywords", content: "kjfsm,ふすま,React Router,shadcn/ui,Tailwind CSS" },
   ];
 };
 
@@ -23,9 +25,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="min-h-screen flex flex-col">
         <Navbar />
-        {children}
+        <main className="flex-1 mx-auto max-w-4xl w-full px-4 py-8">
+          {children}
+        </main>
         <Separator />
         <Footer />
         <ScrollRestoration />
