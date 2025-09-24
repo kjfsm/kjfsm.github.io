@@ -35,7 +35,7 @@ export const meta: MetaFunction = () => {
 
 export default function HowToUsePage() {
   return (
-    <main className="min-h-screen bg-gray-50/50 p-6 md:p-10">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900 p-6 md:p-10">
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <header className="mb-8">
@@ -46,10 +46,10 @@ export default function HowToUsePage() {
             </Link>
           </Button>
           <div className="mb-4 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100">
-              <BookOpen className="h-5 w-5 text-blue-600" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/20">
+              <BookOpen className="h-5 w-5 text-blue-600 dark:text-blue-400" />
             </div>
-            <h1 className="font-bold text-2xl text-gray-900">使い方ガイド</h1>
+            <h1 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text font-bold text-2xl text-transparent">使い方ガイド</h1>
           </div>
           <p className="text-gray-600">
             サークルスケジューラーの基本的な使い方と権限システムについて説明します

@@ -10,19 +10,21 @@ import {
 
 export default function AboutPage() {
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <div className="space-y-4 text-center">
-        <div className="flex items-center justify-center gap-2">
-          <User className="size-8 text-primary" />
-          <h1 className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text font-bold text-4xl text-transparent">
-            About
-          </h1>
-        </div>
-        <p className="text-lg text-muted-foreground">ふすまについて</p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
+      <div className="container mx-auto px-4 py-16">
+        <div className="mx-auto max-w-4xl space-y-8">
+          {/* Header */}
+          <div className="space-y-4 text-center">
+            <div className="flex items-center justify-center gap-2">
+              <User className="size-8 text-primary" />
+              <h1 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text font-bold text-4xl text-transparent">
+                About
+              </h1>
+            </div>
+            <p className="text-lg text-muted-foreground">ふすまについて</p>
+          </div>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {/* Profile */}
         <Card>
           <CardHeader>
@@ -100,10 +102,10 @@ export default function AboutPage() {
             </div>
           </CardContent>
         </Card>
-      </div>
+          </div>
 
-      {/* Current Tech Stack */}
-      <Card>
+          {/* Current Tech Stack */}
+          <Card>
         <CardHeader>
           <CardTitle>このサイトの技術構成</CardTitle>
           <CardDescription>
@@ -132,7 +134,9 @@ export default function AboutPage() {
             </div>
           </div>
         </CardContent>
-      </Card>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }
