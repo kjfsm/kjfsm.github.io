@@ -1,13 +1,9 @@
 import { reactRouter } from "@react-router/dev/vite";
-import path from "path";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
+import devtoolsJson from "vite-plugin-devtools-json";
+import tsconfigPaths from "vite-tsconfig-paths";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [reactRouter()],
-  resolve: {
-    alias: {
-      "~": path.resolve(__dirname, "./app"),
-    },
-  },
+  plugins: [reactRouter(), tsconfigPaths(), tailwindcss(), devtoolsJson()],
 });
