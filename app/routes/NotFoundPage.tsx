@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Link } from "react-router";
+import { Button } from "~/shadcn/components/ui/button";
 
 export default function NotFoundPage() {
   return (
-    <div className="max-w-sm mx-auto">
+    <div className="mx-auto max-w-sm">
       <div className="mt-16 flex flex-col items-center space-y-8">
-        <h1 className="text-4xl font-bold">ページが見つかりません</h1>
-        <p className="text-muted-foreground text-center mb-8">
+        <h1 className="font-bold text-4xl">ページが見つかりません</h1>
+        <p className="mb-8 text-center text-muted-foreground">
           お探しのページは存在しないか、移動または削除された可能性があります。
         </p>
         <Button asChild>

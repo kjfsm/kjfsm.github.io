@@ -1,15 +1,15 @@
 export default function CirclePage() {
   return (
     <div className="max-w-2xl space-y-8">
-      <h1 className="text-4xl font-bold">サークルスケジューラー</h1>
+      <h1 className="font-bold text-4xl">サークルスケジューラー</h1>
 
       <p className="text-lg">
         サークルスケジューラーは、サークル活動のスケジュール管理を支援するアプリです。
       </p>
 
       <div>
-        <h2 className="text-2xl font-semibold mb-4">できること</h2>
-        <ul className="space-y-2 list-disc pl-6">
+        <h2 className="mb-4 font-semibold text-2xl">できること</h2>
+        <ul className="list-disc space-y-2 pl-6">
           <li>グループの作成</li>
           <li>メンバーの招待・管理</li>
           <li>イベントの作成・編集・削除</li>
@@ -24,7 +24,7 @@ export default function CirclePage() {
       <p>
         <a
           href="https://circle.kjfsm.net"
-          className="text-primary hover:underline text-lg"
+          className="text-lg text-primary hover:underline"
           target="_blank"
           rel="noopener noreferrer"
         >

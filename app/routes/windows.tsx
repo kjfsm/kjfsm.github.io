@@ -1,7 +1,7 @@
 export default function WindowsPage() {
   return (
     <div className="max-w-2xl space-y-8">
-      <h1 className="text-4xl font-bold">Windows</h1>
+      <h1 className="font-bold text-4xl">Windows</h1>
 
       <div className="space-y-6">
         <p className="text-lg">
@@ -9,7 +9,7 @@ export default function WindowsPage() {
         </p>
 
         <div>
-          <h2 className="text-2xl font-semibold mb-2">準備中</h2>
+          <h2 className="mb-2 font-semibold text-2xl">準備中</h2>
           <p className="text-muted-foreground">
             コンテンツを準備中です。しばらくお待ちください。
           </p>

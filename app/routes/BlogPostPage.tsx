@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router";
 
 export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -8,7 +8,7 @@ export default function BlogPostPage() {
     return (
       <article className="prose max-w-none">
         <h1>グループの予定管理アプリを作っている話</h1>
-        <p className="text-sm text-muted-foreground">2025-09-09</p>
+        <p className="text-muted-foreground text-sm">2025-09-09</p>
 
         <p>
           所属している楽団で使っているグループ管理アプリの使いにくさが気になっていたので、自分で作ることにしました。
@@ -64,7 +64,7 @@ export default function BlogPostPage() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-4">記事が見つかりません</h1>
+      <h1 className="mb-4 font-bold text-3xl">記事が見つかりません</h1>
       <Link to="/blog" className="text-primary hover:underline">
         ブログトップに戻る
       </Link>
