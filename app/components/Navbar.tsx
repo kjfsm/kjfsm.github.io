@@ -51,8 +51,8 @@ export default function Navbar() {
 
   return (
     <header className="bg-primary text-primary-foreground shadow-md">
-      <div className="container mx-auto max-w-4xl px-4">
-        <div className="flex h-16 items-center justify-between">
+      <div className="mx-auto max-w-4xl px-4">
+        <div className="flex h-16 items-center gap-2">
           {/* Hamburger Menu */}
           <Button
             variant="ghost"
@@ -60,28 +60,12 @@ export default function Navbar() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="hover:bg-primary-foreground/10"
           >
-            <Menu className="h-6 w-6" />
+            <Menu className="size-6" />
           </Button>
 
-          {/* Site Title */}
-          <Link
-            to="/"
-            className="font-bold text-xl transition-opacity hover:opacity-80"
-          >
+          <Link to="/" className="font-bold text-xl">
             kjfsm.net
           </Link>
-
-          {/* Home Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            asChild
-            className="hover:bg-primary-foreground/10"
-          >
-            <Link to="/">
-              <Home className="h-6 w-6" />
-            </Link>
-          </Button>
         </div>
 
         {/* Mobile Menu */}
