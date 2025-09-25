@@ -46,7 +46,7 @@ export const meta: MetaFunction = () => {
       { property: "og:image:height", content: "48" },
       { property: "og:image:type", content: "image/x-icon" },
       { name: "theme-color", content: "#2563eb" },
-      { name: "msapplication-TileColor", content: "#2563eb" }
+      { name: "msapplication-TileColor", content: "#2563eb" },
     ],
   );
 };
@@ -109,6 +109,7 @@ export default function Index() {
             <Button size="lg" asChild className="w-full md:w-auto">
               <a
                 href="https://circle.kjfsm.net/auth/google"
+                title="Googleでログイン"
                 target="_blank"
                 className="flex items-center"
                 rel="noopener"
@@ -123,7 +124,9 @@ export default function Index() {
               asChild
               className="w-full md:w-auto"
             >
-              <Link to="/how-to-use">使い方を見る</Link>
+              <Link to="/how-to-use" title="使い方を見る">
+                使い方を見る
+              </Link>
             </Button>
           </div>
         </div>
@@ -197,12 +200,14 @@ export default function Index() {
               <div className="flex items-center space-x-4 text-muted-foreground text-sm">
                 <Link
                   to="/terms"
+                  title="利用規約"
                   className="transition-colors hover:text-foreground"
                 >
                   利用規約
                 </Link>
                 <Link
                   to="/privacy"
+                  title="プライバシーポリシー"
                   className="transition-colors hover:text-foreground"
                 >
                   プライバシーポリシー
