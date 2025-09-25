@@ -6,7 +6,7 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev --port 3000 --strictPort",
-    "start": "react-router-serve build/server/index.js --port $PORT",
+    "start": "react-router-serve build/server/index.js",
     "typecheck": "tsc --noEmit",
     "lint": "biome check",
     "format": "biome check --write ."
