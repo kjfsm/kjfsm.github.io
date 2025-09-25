@@ -1,9 +1,7 @@
 import { generateRobotsTxt } from "@forge42/seo-tools/robots";
-import type { LoaderFunctionArgs } from "react-router";
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  const url = new URL(request.url);
-  const domain = `${url.protocol}//${url.host}`;
+export async function loader() {
+  const domain = "https://kjfsm.net";
 
   const robotsTxt = generateRobotsTxt([
     {
