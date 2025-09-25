@@ -1,4 +1,3 @@
-import { breadcrumbs } from "@forge42/seo-tools/structured-data/breadcrumb";
 import { organization } from "@forge42/seo-tools/structured-data/organization";
 
 /**
@@ -39,10 +38,34 @@ export function generateWebsiteSchema(domain: string) {
 }
 
 /**
- * パンくずリスト構造化データを生成
+ * パンくずリスト構造化データを生成（独自実装）
+ * @forge42/seo-toolsのbreadcrumbs関数に不具合があるため独自実装
  */
-export function generateBreadcrumbSchema(fullUrl: string, names?: string[]) {
-  return breadcrumbs(fullUrl, names);
+export function generateBreadcrumbSchema(domain: string, path: string, pageNames: string[]) {
+  const items = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "ホーム",
+      item: domain,
+    }
+  ];
+
+  // パンくずリストのアイテムを追加
+  pageNames.forEach((name, index) => {
+    items.push({
+      "@type": "ListItem",
+      position: index + 2,
+      name: name,
+      item: `${domain}${path}`,
+    });
+  });
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  };
 }
 
 /**

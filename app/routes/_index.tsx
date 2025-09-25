@@ -41,13 +41,12 @@ export const meta: MetaFunction = () => {
       },
       { name: "author", content: "ふすま (kjfsm)" },
       { name: "robots", content: "index, follow" },
-      { tagName: "link", rel: "canonical", href: domain },
       { property: "og:locale", content: "ja_JP" },
       { property: "og:image:width", content: "48" },
       { property: "og:image:height", content: "48" },
       { property: "og:image:type", content: "image/x-icon" },
       { name: "theme-color", content: "#2563eb" },
-      { name: "msapplication-TileColor", content: "#2563eb" },
+      { name: "msapplication-TileColor", content: "#2563eb" }
     ],
   );
 };

@@ -20,11 +20,12 @@ import {
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const domain = `${url.protocol}//${url.host}`;
+  // 本番環境では固定ドメインを使用
+  const siteUrl = domain.includes('localhost') ? 'https://kjfsm.net' : domain;
 
   return {
-    domain,
-    breadcrumbSchema: generateBreadcrumbSchema(`${domain}/circle`, [
-      "ホーム",
+    domain: siteUrl,
+    breadcrumbSchema: generateBreadcrumbSchema(siteUrl, '/circle', [
       "サークルスケジューラー",
     ]),
   };
@@ -40,6 +41,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
       description:
         "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。出欠管理、メンバー管理、イベント作成が簡単にできます。",
       url: `${domain}/circle`,
+      siteName: "kjfsm.net",
+      image: `${domain}/favicon.ico`,
       twitterCard: "summary_large_image",
     },
     [
@@ -50,8 +53,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
         content:
           "サークルスケジューラー,スケジュール管理,出欠管理,グループ管理,イベント管理,チーム運営",
       },
-      { tagName: "link", rel: "canonical", href: `${domain}/circle` },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "ja_JP" },
       // パンくずリスト構造化データを組み込み
       ...(data ? [{ "script:ld+json": data.breadcrumbSchema }] : []),
     ],

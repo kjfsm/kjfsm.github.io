@@ -14,11 +14,12 @@ import {
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const domain = `${url.protocol}//${url.host}`;
+  // 本番環境では固定ドメインを使用
+  const siteUrl = domain.includes('localhost') ? 'https://kjfsm.net' : domain;
 
   return {
-    domain,
-    breadcrumbSchema: generateBreadcrumbSchema(`${domain}/about`, [
-      "ホーム",
+    domain: siteUrl,
+    breadcrumbSchema: generateBreadcrumbSchema(siteUrl, '/about', [
       "About",
     ]),
   };
@@ -33,6 +34,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
       description:
         "ふすま(kjfsm)について。React Router v7 + shadcn/ui + Tailwind CSSでウェブサイトを開発しています。",
       url: `${domain}/about`,
+      siteName: "kjfsm.net",
+      image: `${domain}/favicon.ico`,
       twitterCard: "summary",
     },
     [
@@ -43,8 +46,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
         content:
           "kjfsm,ふすま,About,プロフィール,フロントエンド開発,React Router",
       },
-      { tagName: "link", rel: "canonical", href: `${domain}/about` },
       { property: "og:type", content: "profile" },
+      { property: "og:locale", content: "ja_JP" },
       // パンくずリスト構造化データを組み込み
       ...(data ? [{ "script:ld+json": data.breadcrumbSchema }] : []),
     ],
