@@ -1,6 +1,6 @@
-import React from "react";
 import { breadcrumbs } from "@forge42/seo-tools/structured-data/breadcrumb";
 import { organization } from "@forge42/seo-tools/structured-data/organization";
+import React from "react";
 
 /**
  * サイト全体の組織構造化データを生成
@@ -52,7 +52,7 @@ export function generateBreadcrumbSchema(fullUrl: string, names?: string[]) {
 export function getCommonStructuredData(domain: string) {
   return [
     { "script:ld+json": generateOrganizationSchema(domain) },
-    { "script:ld+json": generateWebsiteSchema(domain) }
+    { "script:ld+json": generateWebsiteSchema(domain) },
   ];
 }
 
@@ -62,11 +62,11 @@ export function getCommonStructuredData(domain: string) {
 export function StructuredDataScript({ data }: { data: object }) {
   // useEffectでDOM操作を使用してscriptタグを安全に挿入
   React.useEffect(() => {
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
     script.textContent = JSON.stringify(data);
     document.head.appendChild(script);
-    
+
     // クリーンアップ
     return () => {
       if (script.parentNode) {

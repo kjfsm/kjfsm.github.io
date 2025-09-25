@@ -1,3 +1,4 @@
+import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import {
   ArrowRight,
   Calendar,
@@ -8,7 +9,6 @@ import {
   Zap,
 } from "lucide-react";
 import { Link, type MetaFunction } from "react-router";
-import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import { getCommonStructuredData } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
@@ -20,28 +20,36 @@ import {
 
 export const meta: MetaFunction = () => {
   const domain = "https://kjfsm.net";
-  
-  return generateMeta({
-    title: "kjfsm.net - ふすまのウェブサイト",
-    description: "ふすまのウェブサイト - React Router v7 + shadcn/ui + Tailwind CSS。サークルスケジューラーや刀剣乱舞ツールなど。",
-    url: domain,
-    siteName: "kjfsm.net",
-    image: `${domain}/favicon.ico`,
-    twitterCard: "summary"
-  }, [
-    // 共通の構造化データを追加
-    ...getCommonStructuredData(domain),
-    { name: "keywords", content: "kjfsm,ふすま,React Router,shadcn/ui,Tailwind CSS,フロントエンド,ウェブ開発" },
-    { name: "author", content: "ふすま (kjfsm)" },
-    { name: "robots", content: "index, follow" },
-    { tagName: "link", rel: "canonical", href: domain },
-    { property: "og:locale", content: "ja_JP" },
-    { property: "og:image:width", content: "48" },
-    { property: "og:image:height", content: "48" },
-    { property: "og:image:type", content: "image/x-icon" },
-    { name: "theme-color", content: "#2563eb" },
-    { name: "msapplication-TileColor", content: "#2563eb" }
-  ]);
+
+  return generateMeta(
+    {
+      title: "kjfsm.net - ふすまのウェブサイト",
+      description:
+        "ふすまのウェブサイト - React Router v7 + shadcn/ui + Tailwind CSS。サークルスケジューラーや刀剣乱舞ツールなど。",
+      url: domain,
+      siteName: "kjfsm.net",
+      image: `${domain}/favicon.ico`,
+      twitterCard: "summary",
+    },
+    [
+      // 共通の構造化データを追加
+      ...getCommonStructuredData(domain),
+      {
+        name: "keywords",
+        content:
+          "kjfsm,ふすま,React Router,shadcn/ui,Tailwind CSS,フロントエンド,ウェブ開発",
+      },
+      { name: "author", content: "ふすま (kjfsm)" },
+      { name: "robots", content: "index, follow" },
+      { tagName: "link", rel: "canonical", href: domain },
+      { property: "og:locale", content: "ja_JP" },
+      { property: "og:image:width", content: "48" },
+      { property: "og:image:height", content: "48" },
+      { property: "og:image:type", content: "image/x-icon" },
+      { name: "theme-color", content: "#2563eb" },
+      { name: "msapplication-TileColor", content: "#2563eb" },
+    ],
+  );
 };
 
 export default function Index() {

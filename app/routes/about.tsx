@@ -1,6 +1,6 @@
+import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import { Code, Container, ExternalLink, User } from "lucide-react";
 import type { LoaderFunctionArgs, MetaFunction } from "react-router";
-import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import { generateBreadcrumbSchema, getCommonStructuredData } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
@@ -17,30 +17,38 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   return {
     domain,
-    breadcrumbSchema: generateBreadcrumbSchema(
-      `${domain}/about`,
-      ["ホーム", "About"]
-    ),
+    breadcrumbSchema: generateBreadcrumbSchema(`${domain}/about`, [
+      "ホーム",
+      "About",
+    ]),
   };
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const domain = data?.domain || "https://kjfsm.net";
 
-  return generateMeta({
-    title: "About - kjfsm.net",
-    description: "ふすま(kjfsm)について。React Router v7 + shadcn/ui + Tailwind CSSでウェブサイトを開発しています。",
-    url: `${domain}/about`,
-    twitterCard: "summary"
-  }, [
-    // 共通の構造化データを追加
-    ...getCommonStructuredData(domain),
-    { name: "keywords", content: "kjfsm,ふすま,About,プロフィール,フロントエンド開発,React Router" },
-    { tagName: "link", rel: "canonical", href: `${domain}/about` },
-    { property: "og:type", content: "profile" },
-    // パンくずリスト構造化データを組み込み
-    ...(data ? [{ "script:ld+json": data.breadcrumbSchema }] : [])
-  ]);
+  return generateMeta(
+    {
+      title: "About - kjfsm.net",
+      description:
+        "ふすま(kjfsm)について。React Router v7 + shadcn/ui + Tailwind CSSでウェブサイトを開発しています。",
+      url: `${domain}/about`,
+      twitterCard: "summary",
+    },
+    [
+      // 共通の構造化データを追加
+      ...getCommonStructuredData(domain),
+      {
+        name: "keywords",
+        content:
+          "kjfsm,ふすま,About,プロフィール,フロントエンド開発,React Router",
+      },
+      { tagName: "link", rel: "canonical", href: `${domain}/about` },
+      { property: "og:type", content: "profile" },
+      // パンくずリスト構造化データを組み込み
+      ...(data ? [{ "script:ld+json": data.breadcrumbSchema }] : []),
+    ],
+  );
 };
 
 export default function AboutPage() {

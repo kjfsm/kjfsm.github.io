@@ -1,3 +1,4 @@
+import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import {
   ArrowRight,
   Calendar,
@@ -7,7 +8,6 @@ import {
   Users,
 } from "lucide-react";
 import type { LoaderFunctionArgs, MetaFunction } from "react-router";
-import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import { generateBreadcrumbSchema, getCommonStructuredData } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
@@ -23,30 +23,39 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   return {
     domain,
-    breadcrumbSchema: generateBreadcrumbSchema(
-      `${domain}/circle`,
-      ["ホーム", "サークルスケジューラー"]
-    ),
+    breadcrumbSchema: generateBreadcrumbSchema(`${domain}/circle`, [
+      "ホーム",
+      "サークルスケジューラー",
+    ]),
   };
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const domain = data?.domain || "https://kjfsm.net";
 
-  return generateMeta({
-    title: "サークルスケジューラー - グループスケジュール管理アプリ | kjfsm.net",
-    description: "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。出欠管理、メンバー管理、イベント作成が簡単にできます。",
-    url: `${domain}/circle`,
-    twitterCard: "summary_large_image"
-  }, [
-    // 共通の構造化データを追加
-    ...getCommonStructuredData(domain),
-    { name: "keywords", content: "サークルスケジューラー,スケジュール管理,出欠管理,グループ管理,イベント管理,チーム運営" },
-    { tagName: "link", rel: "canonical", href: `${domain}/circle` },
-    { property: "og:type", content: "website" },
-    // パンくずリスト構造化データを組み込み
-    ...(data ? [{ "script:ld+json": data.breadcrumbSchema }] : [])
-  ]);
+  return generateMeta(
+    {
+      title:
+        "サークルスケジューラー - グループスケジュール管理アプリ | kjfsm.net",
+      description:
+        "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。出欠管理、メンバー管理、イベント作成が簡単にできます。",
+      url: `${domain}/circle`,
+      twitterCard: "summary_large_image",
+    },
+    [
+      // 共通の構造化データを追加
+      ...getCommonStructuredData(domain),
+      {
+        name: "keywords",
+        content:
+          "サークルスケジューラー,スケジュール管理,出欠管理,グループ管理,イベント管理,チーム運営",
+      },
+      { tagName: "link", rel: "canonical", href: `${domain}/circle` },
+      { property: "og:type", content: "website" },
+      // パンくずリスト構造化データを組み込み
+      ...(data ? [{ "script:ld+json": data.breadcrumbSchema }] : []),
+    ],
+  );
 };
 
 export default function CirclePage() {
