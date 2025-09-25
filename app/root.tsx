@@ -12,7 +12,11 @@ import {
   useLoaderData,
 } from "react-router";
 import Navbar from "./components/Navbar";
-import { generateOrganizationSchema, generateWebsiteSchema } from "./lib/seo";
+import { 
+  generateOrganizationSchema, 
+  generateWebsiteSchema,
+  StructuredDataScript 
+} from "./lib/seo";
 import styles from "./tailwind.css?url";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
@@ -91,26 +95,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        {loaderData && (
-          <>
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(loaderData.organizationSchema),
-              }}
-            />
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(loaderData.websiteSchema),
-              }}
-            />
-          </>
-        )}
       </head>
       <body className="flex min-h-screen flex-col">
         <Navbar />
-        <main>{children}</main>
+        <main>
+          {children}
+          {/* 構造化データをdangerouslySetInnerHTMLなしで挿入 */}
+          {loaderData && (
+            <>
+              <StructuredDataScript data={loaderData.organizationSchema} />
+              <StructuredDataScript data={loaderData.websiteSchema} />
+            </>
+          )}
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>

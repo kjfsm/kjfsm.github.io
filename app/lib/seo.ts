@@ -1,3 +1,4 @@
+import React from "react";
 import { breadcrumbs } from "@forge42/seo-tools/structured-data/breadcrumb";
 import { organization } from "@forge42/seo-tools/structured-data/organization";
 
@@ -43,4 +44,26 @@ export function generateWebsiteSchema(domain: string) {
  */
 export function generateBreadcrumbSchema(fullUrl: string, names?: string[]) {
   return breadcrumbs(fullUrl, names);
+}
+
+/**
+ * 構造化データ用のscriptコンポーネント（dangerouslySetInnerHTMLを避ける）
+ */
+export function StructuredDataScript({ data }: { data: object }) {
+  // useEffectでDOM操作を使用してscriptタグを安全に挿入
+  React.useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(data);
+    document.head.appendChild(script);
+    
+    // クリーンアップ
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, [data]);
+
+  return null; // 何もレンダリングしない
 }
