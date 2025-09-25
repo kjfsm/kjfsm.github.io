@@ -6,6 +6,9 @@ import {
   UserPlus,
   Users,
 } from "lucide-react";
+import type { LoaderFunctionArgs, MetaFunction } from "react-router";
+import { useLoaderData } from "react-router";
+import { generateBreadcrumbSchema } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
   Card,
@@ -14,7 +17,46 @@ import {
   CardTitle,
 } from "~/shadcn/components/ui/card";
 
+export async function loader({ request }: LoaderFunctionArgs) {
+  const url = new URL(request.url);
+  const domain = `${url.protocol}//${url.host}`;
+  
+  return {
+    domain,
+    breadcrumbSchema: generateBreadcrumbSchema(
+      `${domain}/circle`,
+      ["ホーム", "サークルスケジューラー"]
+    ),
+  };
+}
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const domain = data?.domain || "https://kjfsm.net";
+  
+  return [
+    { title: "サークルスケジューラー - グループスケジュール管理アプリ | kjfsm.net" },
+    { name: "description", content: "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。出欠管理、メンバー管理、イベント作成が簡単にできます。" },
+    { name: "keywords", content: "サークルスケジューラー,スケジュール管理,出欠管理,グループ管理,イベント管理,チーム運営" },
+    
+    // カノニカルURL
+    { tagName: "link", rel: "canonical", href: `${domain}/circle` },
+    
+    // Open Graph
+    { property: "og:type", content: "website" },
+    { property: "og:title", content: "サークルスケジューラー - グループスケジュール管理アプリ" },
+    { property: "og:description", content: "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。出欠管理、メンバー管理、イベント作成が簡単にできます。" },
+    { property: "og:url", content: `${domain}/circle` },
+    
+    // Twitter Card
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: "サークルスケジューラー - グループスケジュール管理アプリ" },
+    { name: "twitter:description", content: "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。" },
+  ];
+};
+
 export default function CirclePage() {
+  const { breadcrumbSchema } = useLoaderData<typeof loader>();
+  
   const features = [
     {
       icon: Users,
@@ -39,7 +81,16 @@ export default function CirclePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
+    <>
+      {/* 構造化データをヘッドに挿入 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
       <div className="container mx-auto px-4 py-16">
         <div className="mx-auto max-w-4xl space-y-12">
           {/* Header */}
@@ -133,6 +184,7 @@ export default function CirclePage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

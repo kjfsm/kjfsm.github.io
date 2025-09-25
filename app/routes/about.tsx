@@ -1,4 +1,7 @@
 import { Code, Container, ExternalLink, User } from "lucide-react";
+import type { LoaderFunctionArgs, MetaFunction } from "react-router";
+import { useLoaderData } from "react-router";
+import { generateBreadcrumbSchema } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
   Card,
@@ -8,9 +11,57 @@ import {
   CardTitle,
 } from "~/shadcn/components/ui/card";
 
+export async function loader({ request }: LoaderFunctionArgs) {
+  const url = new URL(request.url);
+  const domain = `${url.protocol}//${url.host}`;
+  
+  return {
+    domain,
+    breadcrumbSchema: generateBreadcrumbSchema(
+      `${domain}/about`,
+      ["ホーム", "About"]
+    ),
+  };
+}
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const domain = data?.domain || "https://kjfsm.net";
+  
+  return [
+    { title: "About - kjfsm.net" },
+    { name: "description", content: "ふすま(kjfsm)について。React Router v7 + shadcn/ui + Tailwind CSSでウェブサイトを開発しています。" },
+    { name: "keywords", content: "kjfsm,ふすま,About,プロフィール,フロントエンド開発,React Router" },
+    
+    // カノニカルURL
+    { tagName: "link", rel: "canonical", href: `${domain}/about` },
+    
+    // Open Graph
+    { property: "og:type", content: "profile" },
+    { property: "og:title", content: "About - kjfsm.net" },
+    { property: "og:description", content: "ふすま(kjfsm)について。React Router v7 + shadcn/ui + Tailwind CSSでウェブサイトを開発しています。" },
+    { property: "og:url", content: `${domain}/about` },
+    
+    // Twitter Card
+    { name: "twitter:card", content: "summary" },
+    { name: "twitter:title", content: "About - kjfsm.net" },
+    { name: "twitter:description", content: "ふすま(kjfsm)について。React Router v7 + shadcn/ui + Tailwind CSSでウェブサイトを開発しています。" },
+  ];
+};
+
 export default function AboutPage() {
+  const { breadcrumbSchema } = useLoaderData<typeof loader>();
+  
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
+    <>
+      {/* 構造化データをヘッドに挿入 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
+      
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
       <div className="container mx-auto px-4 py-16">
         <div className="mx-auto max-w-4xl space-y-8">
           {/* Header */}
@@ -136,7 +187,8 @@ export default function AboutPage() {
             </CardContent>
           </Card>
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,14 +1,38 @@
-import type { LinksFunction, MetaFunction } from "react-router";
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import type {
+  LinksFunction,
+  LoaderFunctionArgs,
+  MetaFunction,
+} from "react-router";
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useLoaderData,
+} from "react-router";
 import Navbar from "./components/Navbar";
+import { generateOrganizationSchema, generateWebsiteSchema } from "./lib/seo";
 import styles from "./tailwind.css?url";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
-export const meta: MetaFunction = () => {
+export async function loader({ request }: LoaderFunctionArgs) {
+  const url = new URL(request.url);
+  const domain = `${url.protocol}//${url.host}`;
+
+  return {
+    domain,
+    organizationSchema: generateOrganizationSchema(domain),
+    websiteSchema: generateWebsiteSchema(domain),
+  };
+}
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const domain = data?.domain || "https://kjfsm.net";
+
   return [
-    { title: "kjfsm.net" },
-    { property: "og:title", content: "kjfsm.net" },
+    { title: "kjfsm.net - ふすまのウェブサイト" },
     {
       name: "description",
       content:
@@ -16,12 +40,50 @@ export const meta: MetaFunction = () => {
     },
     {
       name: "keywords",
-      content: "kjfsm,ふすま,React Router,shadcn/ui,Tailwind CSS",
+      content:
+        "kjfsm,ふすま,React Router,shadcn/ui,Tailwind CSS,フロントエンド,ウェブ開発",
     },
+    { name: "author", content: "ふすま (kjfsm)" },
+    { name: "robots", content: "index, follow" },
+
+    // カノニカルURL
+    { tagName: "link", rel: "canonical", href: domain },
+
+    // Open Graph
+    { property: "og:type", content: "website" },
+    { property: "og:title", content: "kjfsm.net - ふすまのウェブサイト" },
+    {
+      property: "og:description",
+      content:
+        "ふすまのウェブサイト - React Router v7 + shadcn/ui + Tailwind CSS",
+    },
+    { property: "og:url", content: domain },
+    { property: "og:site_name", content: "kjfsm.net" },
+    { property: "og:locale", content: "ja_JP" },
+    { property: "og:image", content: `${domain}/favicon.ico` },
+    { property: "og:image:width", content: "48" },
+    { property: "og:image:height", content: "48" },
+    { property: "og:image:type", content: "image/x-icon" },
+
+    // Twitter Card
+    { name: "twitter:card", content: "summary" },
+    { name: "twitter:title", content: "kjfsm.net - ふすまのウェブサイト" },
+    {
+      name: "twitter:description",
+      content:
+        "ふすまのウェブサイト - React Router v7 + shadcn/ui + Tailwind CSS",
+    },
+    { name: "twitter:image", content: `${domain}/favicon.ico` },
+
+    // 追加のメタタグ
+    { name: "theme-color", content: "#2563eb" },
+    { name: "msapplication-TileColor", content: "#2563eb" },
   ];
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const loaderData = useLoaderData<typeof loader>();
+
   return (
     <html lang="ja-JP">
       <head>
@@ -29,6 +91,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {loaderData && (
+          <>
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(loaderData.organizationSchema),
+              }}
+            />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(loaderData.websiteSchema),
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="flex min-h-screen flex-col">
         <Navbar />
