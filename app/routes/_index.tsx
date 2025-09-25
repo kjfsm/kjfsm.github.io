@@ -98,7 +98,9 @@ export default function Index() {
             <Button size="lg" asChild className="w-full md:w-auto">
               <a
                 href="https://circle.kjfsm.net/auth/google"
+                target="_blank"
                 className="flex items-center"
+                rel="noopener"
               >
                 Googleでログイン
                 <ArrowRight className="ml-2 h-4 w-4" />

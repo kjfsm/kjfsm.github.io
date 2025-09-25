@@ -27,7 +27,7 @@ export default function PrivacyPage() {
   const { content, version, lastUpdated } = useLoaderData<typeof loader>();
 
   return (
-    <main className="min-h-screen bg-gray-50/50 p-6 md:p-10">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 md:p-10 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <header className="mb-8">
@@ -38,10 +38,10 @@ export default function PrivacyPage() {
             </Link>
           </Button>
           <div className="mb-4 flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-100">
-              <Shield className="h-5 w-5 text-green-600" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/20">
+              <Shield className="h-5 w-5 text-green-600 dark:text-green-400" />
             </div>
-            <h1 className="font-bold text-2xl text-gray-900">
+            <h1 className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text font-bold text-2xl text-transparent">
               プライバシーポリシー
             </h1>
           </div>
