@@ -8,7 +8,7 @@ import {
   Users,
 } from "lucide-react";
 import type { LoaderFunctionArgs, MetaFunction } from "react-router";
-import { generateBreadcrumbSchema, getCommonStructuredData } from "~/lib/seo";
+import { getCommonStructuredData } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
   Card,
@@ -21,14 +21,9 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const domain = `${url.protocol}//${url.host}`;
   // 本番環境では固定ドメインを使用
-  const siteUrl = domain.includes('localhost') ? 'https://kjfsm.net' : domain;
+  const siteUrl = domain.includes("localhost") ? "https://kjfsm.net" : domain;
 
-  return {
-    domain: siteUrl,
-    breadcrumbSchema: generateBreadcrumbSchema(siteUrl, '/circle', [
-      "サークルスケジューラー",
-    ]),
-  };
+  return { domain: siteUrl };
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -55,8 +50,6 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
       },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "ja_JP" },
-      // パンくずリスト構造化データを組み込み
-      ...(data ? [{ "script:ld+json": data.breadcrumbSchema }] : []),
     ],
   );
 };
