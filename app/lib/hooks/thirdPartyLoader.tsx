@@ -21,8 +21,12 @@ export default function ThirdPartyLoader({gtmId}: {gtmId: string}) {
     document.head.appendChild(adsScript);
 
     return () => {
-      gtmScript.remove();
-      adsScript.remove();
+      if (gtmScript && gtmScript.parentNode) {
+        gtmScript.remove();
+      }
+      if (adsScript && adsScript.parentNode) {
+        adsScript.remove();
+      }
     };
   }, []);
 
