@@ -4,6 +4,8 @@ import type { LoaderFunctionArgs } from "react-router";
 export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const domain = `${url.protocol}//${url.host}`;
+  // 本番環境では固定ドメインを使用
+  const siteUrl = domain.includes("localhost") ? "https://kjfsm.net" : domain;
 
   // サイトマップの全ルートで共通の日付を定義
   const today = new Date().toISOString().split("T")[0];
@@ -55,7 +57,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   ];
 
   const sitemap = await generateSitemap({
-    domain,
+    domain: siteUrl,
     routes,
   });
 
