@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function ThirdPartyLoader() {
+export default function ThirdPartyLoader({gtmId}: {gtmId: string}) {
   useEffect(() => {
     // 開発時は無効（任意）
     if (import.meta.env.DEV) return;
@@ -10,7 +10,7 @@ export default function ThirdPartyLoader() {
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PV6KML43');`;
+    })(window,document,'script','dataLayer','${gtmId}');`;
     document.head.appendChild(gtmScript);
 
     const adsScript = document.createElement("script");

@@ -39,7 +39,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <ThirdPartyLoader />
+        <ThirdPartyLoader gtmId={GTM_ID} />
         <Navbar />
         <main>{children}</main>
         <ScrollRestoration />
