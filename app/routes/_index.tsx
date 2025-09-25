@@ -1,3 +1,4 @@
+import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import {
   ArrowRight,
   Calendar,
@@ -8,6 +9,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Link, type MetaFunction } from "react-router";
+import { getCommonStructuredData } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
   Card,
@@ -17,27 +19,36 @@ import {
 } from "~/shadcn/components/ui/card";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "サークルスケジューラー - グループでスケジュール管理" },
+  const domain = "https://kjfsm.net";
+
+  return generateMeta(
     {
-      name: "description",
-      content:
-        "グループでスケジュール・出欠の管理を行うアプリです。サークルやチームで簡単にイベント管理ができます。",
+      title: "kjfsm.net - ふすまのウェブサイト",
+      description:
+        "ふすまのウェブサイト - React Router v7 + shadcn/ui + Tailwind CSS。サークルスケジューラーや刀剣乱舞ツールなど。",
+      url: domain,
+      siteName: "kjfsm.net",
+      image: `${domain}/favicon.ico`,
+      twitterCard: "summary",
     },
-    {
-      property: "og:title",
-      content: "サークルスケジューラー - グループでスケジュール管理",
-    },
-    {
-      property: "og:description",
-      content:
-        "グループでスケジュール・出欠の管理を行うアプリです。サークルやチームで簡単にイベント管理ができます。",
-    },
-    {
-      property: "og:type",
-      content: "website",
-    },
-  ];
+    [
+      // 共通の構造化データを追加
+      ...getCommonStructuredData(domain),
+      {
+        name: "keywords",
+        content:
+          "kjfsm,ふすま,React Router,shadcn/ui,Tailwind CSS,フロントエンド,ウェブ開発",
+      },
+      { name: "author", content: "ふすま (kjfsm)" },
+      { name: "robots", content: "index, follow" },
+      { property: "og:locale", content: "ja_JP" },
+      { property: "og:image:width", content: "48" },
+      { property: "og:image:height", content: "48" },
+      { property: "og:image:type", content: "image/x-icon" },
+      { name: "theme-color", content: "#2563eb" },
+      { name: "msapplication-TileColor", content: "#2563eb" },
+    ],
+  );
 };
 
 export default function Index() {
@@ -98,6 +109,7 @@ export default function Index() {
             <Button size="lg" asChild className="w-full md:w-auto">
               <a
                 href="https://circle.kjfsm.net/auth/google"
+                title="Googleでログイン"
                 target="_blank"
                 className="flex items-center"
                 rel="noopener"
@@ -112,7 +124,9 @@ export default function Index() {
               asChild
               className="w-full md:w-auto"
             >
-              <Link to="/how-to-use">使い方を見る</Link>
+              <Link to="/how-to-use" title="使い方を見る">
+                使い方を見る
+              </Link>
             </Button>
           </div>
         </div>
@@ -186,12 +200,14 @@ export default function Index() {
               <div className="flex items-center space-x-4 text-muted-foreground text-sm">
                 <Link
                   to="/terms"
+                  title="利用規約"
                   className="transition-colors hover:text-foreground"
                 >
                   利用規約
                 </Link>
                 <Link
                   to="/privacy"
+                  title="プライバシーポリシー"
                   className="transition-colors hover:text-foreground"
                 >
                   プライバシーポリシー

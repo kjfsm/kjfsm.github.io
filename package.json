@@ -12,6 +12,7 @@
     "format": "biome check --write ."
   },
   "dependencies": {
+    "@forge42/seo-tools": "^1.4.5",
     "@react-router/node": "^7.9.2",
     "@react-router/serve": "^7.9.2",
     "class-variance-authority": "^0.7.1",

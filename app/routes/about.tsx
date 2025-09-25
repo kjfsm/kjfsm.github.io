@@ -1,4 +1,7 @@
+import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import { Code, Container, ExternalLink, User } from "lucide-react";
+import type { LoaderFunctionArgs, MetaFunction } from "react-router";
+import { getCommonStructuredData } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
   Card,
@@ -7,6 +10,42 @@ import {
   CardHeader,
   CardTitle,
 } from "~/shadcn/components/ui/card";
+
+export async function loader({ request }: LoaderFunctionArgs) {
+  const url = new URL(request.url);
+  const domain = `${url.protocol}//${url.host}`;
+  // 本番環境では固定ドメインを使用
+  const siteUrl = domain.includes("localhost") ? "https://kjfsm.net" : domain;
+
+  return { domain: siteUrl };
+}
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const domain = data?.domain || "https://kjfsm.net";
+
+  return generateMeta(
+    {
+      title: "About - kjfsm.net",
+      description:
+        "ふすま(kjfsm)について。React Router v7 + shadcn/ui + Tailwind CSSでウェブサイトを開発しています。",
+      url: `${domain}/about`,
+      siteName: "kjfsm.net",
+      image: `${domain}/favicon.ico`,
+      twitterCard: "summary",
+    },
+    [
+      // 共通の構造化データを追加
+      ...getCommonStructuredData(domain),
+      {
+        name: "keywords",
+        content:
+          "kjfsm,ふすま,About,プロフィール,フロントエンド開発,React Router",
+      },
+      { property: "og:type", content: "profile" },
+      { property: "og:locale", content: "ja_JP" },
+    ],
+  );
+};
 
 export default function AboutPage() {
   return (

@@ -1,3 +1,4 @@
+import { generateMeta } from "@forge42/seo-tools/remix/metadata";
 import {
   ArrowRight,
   Calendar,
@@ -6,6 +7,8 @@ import {
   UserPlus,
   Users,
 } from "lucide-react";
+import type { LoaderFunctionArgs, MetaFunction } from "react-router";
+import { getCommonStructuredData } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
   Card,
@@ -13,6 +16,43 @@ import {
   CardHeader,
   CardTitle,
 } from "~/shadcn/components/ui/card";
+
+export async function loader({ request }: LoaderFunctionArgs) {
+  const url = new URL(request.url);
+  const domain = `${url.protocol}//${url.host}`;
+  // 本番環境では固定ドメインを使用
+  const siteUrl = domain.includes("localhost") ? "https://kjfsm.net" : domain;
+
+  return { domain: siteUrl };
+}
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const domain = data?.domain || "https://kjfsm.net";
+
+  return generateMeta(
+    {
+      title:
+        "サークルスケジューラー - グループスケジュール管理アプリ | kjfsm.net",
+      description:
+        "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。出欠管理、メンバー管理、イベント作成が簡単にできます。",
+      url: `${domain}/circle`,
+      siteName: "kjfsm.net",
+      image: `${domain}/favicon.ico`,
+      twitterCard: "summary_large_image",
+    },
+    [
+      // 共通の構造化データを追加
+      ...getCommonStructuredData(domain),
+      {
+        name: "keywords",
+        content:
+          "サークルスケジューラー,スケジュール管理,出欠管理,グループ管理,イベント管理,チーム運営",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "ja_JP" },
+    ],
+  );
+};
 
 export default function CirclePage() {
   const features = [

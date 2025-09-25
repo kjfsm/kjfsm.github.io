@@ -51,6 +51,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
+            title="ホームに戻る"
             className="font-bold text-xl transition-opacity hover:opacity-90"
           >
             kjfsm.net
@@ -81,6 +82,7 @@ export default function Navbar() {
                   <Link
                     key={item.path}
                     to={item.path}
+                    title={item.text}
                     className="group flex items-center gap-3 rounded-md px-4 py-3 transition-colors hover:bg-primary-foreground/10"
                     onClick={() => setIsMenuOpen(false)}
                   >
