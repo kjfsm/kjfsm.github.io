@@ -26,14 +26,6 @@ export function generateWebsiteSchema(domain: string) {
     url: domain,
     description:
       "ふすまのウェブサイト - React Router v7 + shadcn/ui + Tailwind CSS",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${domain}/?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 
