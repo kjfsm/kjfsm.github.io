@@ -7,8 +7,8 @@ import {
   Users,
 } from "lucide-react";
 import type { LoaderFunctionArgs, MetaFunction } from "react-router";
-import { useLoaderData } from "react-router";
-import { generateBreadcrumbSchema, StructuredDataScript } from "~/lib/seo";
+import { generateMeta } from "@forge42/seo-tools/remix/metadata";
+import { generateBreadcrumbSchema, getCommonStructuredData } from "~/lib/seo";
 import { Button } from "~/shadcn/components/ui/button";
 import {
   Card,
@@ -33,55 +33,23 @@ export async function loader({ request }: LoaderFunctionArgs) {
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const domain = data?.domain || "https://kjfsm.net";
 
-  return [
-    {
-      title:
-        "サークルスケジューラー - グループスケジュール管理アプリ | kjfsm.net",
-    },
-    {
-      name: "description",
-      content:
-        "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。出欠管理、メンバー管理、イベント作成が簡単にできます。",
-    },
-    {
-      name: "keywords",
-      content:
-        "サークルスケジューラー,スケジュール管理,出欠管理,グループ管理,イベント管理,チーム運営",
-    },
-
-    // カノニカルURL
+  return generateMeta({
+    title: "サークルスケジューラー - グループスケジュール管理アプリ | kjfsm.net",
+    description: "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。出欠管理、メンバー管理、イベント作成が簡単にできます。",
+    url: `${domain}/circle`,
+    twitterCard: "summary_large_image"
+  }, [
+    // 共通の構造化データを追加
+    ...getCommonStructuredData(domain),
+    { name: "keywords", content: "サークルスケジューラー,スケジュール管理,出欠管理,グループ管理,イベント管理,チーム運営" },
     { tagName: "link", rel: "canonical", href: `${domain}/circle` },
-
-    // Open Graph
     { property: "og:type", content: "website" },
-    {
-      property: "og:title",
-      content: "サークルスケジューラー - グループスケジュール管理アプリ",
-    },
-    {
-      property: "og:description",
-      content:
-        "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。出欠管理、メンバー管理、イベント作成が簡単にできます。",
-    },
-    { property: "og:url", content: `${domain}/circle` },
-
-    // Twitter Card
-    { name: "twitter:card", content: "summary_large_image" },
-    {
-      name: "twitter:title",
-      content: "サークルスケジューラー - グループスケジュール管理アプリ",
-    },
-    {
-      name: "twitter:description",
-      content:
-        "サークル、チーム、コミュニティのスケジュール管理を効率化するアプリです。",
-    },
-  ];
+    // パンくずリスト構造化データを組み込み
+    ...(data ? [{ "script:ld+json": data.breadcrumbSchema }] : [])
+  ]);
 };
 
 export default function CirclePage() {
-  const { breadcrumbSchema } = useLoaderData<typeof loader>();
-  
   const features = [
     {
       icon: Users,
@@ -200,9 +168,6 @@ export default function CirclePage() {
           </div>
         </div>
       </div>
-      
-      {/* 構造化データをdangerouslySetInnerHTMLなしで挿入 */}
-      <StructuredDataScript data={breadcrumbSchema} />
     </div>
   );
 }

@@ -47,6 +47,16 @@ export function generateBreadcrumbSchema(fullUrl: string, names?: string[]) {
 }
 
 /**
+ * サイト共通の構造化データを取得（全ページで使用）
+ */
+export function getCommonStructuredData(domain: string) {
+  return [
+    { "script:ld+json": generateOrganizationSchema(domain) },
+    { "script:ld+json": generateWebsiteSchema(domain) }
+  ];
+}
+
+/**
  * 構造化データ用のscriptコンポーネント（dangerouslySetInnerHTMLを避ける）
  */
 export function StructuredDataScript({ data }: { data: object }) {
