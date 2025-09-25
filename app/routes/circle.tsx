@@ -1,16 +1,15 @@
-import { 
-  ArrowRight, 
-  Calendar, 
-  CheckSquare, 
-  ExternalLink, 
-  Users, 
-  UserPlus 
+import {
+  ArrowRight,
+  Calendar,
+  CheckSquare,
+  ExternalLink,
+  UserPlus,
+  Users,
 } from "lucide-react";
 import { Button } from "~/shadcn/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "~/shadcn/components/ui/card";
@@ -55,7 +54,7 @@ export default function CirclePage() {
               <br className="hidden md:block" />
               効率的なグループ運営をサポートします。
             </p>
-            
+
             <div className="flex flex-col items-center justify-center gap-4 pt-4 md:flex-row">
               <Button size="lg" asChild className="w-full md:w-auto">
                 <a
@@ -93,11 +92,15 @@ export default function CirclePage() {
                         <div className="rounded-lg bg-primary/10 p-2 transition-colors group-hover:bg-primary/20">
                           <Icon className="h-6 w-6 text-primary" />
                         </div>
-                        <CardTitle className="text-xl">{feature.title}</CardTitle>
+                        <CardTitle className="text-xl">
+                          {feature.title}
+                        </CardTitle>
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground">{feature.description}</p>
+                      <p className="text-muted-foreground">
+                        {feature.description}
+                      </p>
                     </CardContent>
                   </Card>
                 );
@@ -107,9 +110,7 @@ export default function CirclePage() {
 
           {/* CTA */}
           <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-8 text-center text-white">
-            <h3 className="mb-4 font-bold text-2xl">
-              今すぐ始めましょう
-            </h3>
+            <h3 className="mb-4 font-bold text-2xl">今すぐ始めましょう</h3>
             <p className="mb-6 text-blue-100">
               興味のある方は以下のリンクからアクセスしてください。
             </p>

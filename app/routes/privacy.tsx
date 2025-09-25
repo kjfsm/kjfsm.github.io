@@ -27,7 +27,7 @@ export default function PrivacyPage() {
   const { content, version, lastUpdated } = useLoaderData<typeof loader>();
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900 p-6 md:p-10">
+    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 p-6 md:p-10 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <header className="mb-8">

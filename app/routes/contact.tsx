@@ -1,4 +1,4 @@
-import { ExternalLink, Mail, MessageCircle } from "lucide-react";
+import { ExternalLink, MessageCircle } from "lucide-react";
 import { Button } from "~/shadcn/components/ui/button";
 import {
   Card,
@@ -53,20 +53,6 @@ export default function ContactPage() {
                   </a>
                 </Button>
               </CardContent>
-            </Card>
-
-            <Card className="group hover:-translate-y-1 relative overflow-hidden border-0 shadow-lg transition-all duration-300 hover:shadow-xl opacity-60">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3">
-                  <div className="rounded-lg bg-muted p-2">
-                    <Mail className="h-6 w-6 text-muted-foreground" />
-                  </div>
-                  その他のお問い合わせ
-                </CardTitle>
-                <CardDescription>
-                  準備中です。しばらくお待ちください。
-                </CardDescription>
-              </CardHeader>
             </Card>
           </div>
         </div>
