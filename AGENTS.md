@@ -24,9 +24,9 @@
 
 ### リポジトリのブートストラップ、ビルド、テスト
 ```bash
-pnpm install                           # ~1秒 - 依存関係のインストール
-pnpm format                           # ~1秒 - Biomeコードフォーマット
-pnpm build                            # ~10-15秒 - 本番用ビルド - 絶対にキャンセルしない
+pnpm install
+pnpm format
+pnpm build
 ```
 
 ### アプリケーションの実行
@@ -38,15 +38,15 @@ pnpm start
 ## 開発アーキテクチャ
 
 ### 技術スタック
-- **フロントエンド**: React-Router
+- **フロントエンド**: React + React Router
 - **スタイリング**: Tailwind CSS + shadcn/ui コンポーネント
 - **コード品質**: Biome (lint + format)
 
 ### コミット前検証
 変更をコミットする前に必ず実行:
 ```bash
-pnpm typecheck                        # 型安全性チェック
-pnpm format                           # コードフォーマット
+pnpm typecheck
+pnpm format
 ```
 
 ## 開発ルール
